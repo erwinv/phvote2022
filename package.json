@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "pres": "node build/script/fetch.js --pres > pres.tsv",
+    "vice": "node build/script/fetch.js --vice > vice.tsv"
   },
   "author": "",
   "license": "ISC",
@@ -15,8 +17,10 @@
     "luxon": "^2.4.0"
   },
   "devDependencies": {
+    "@types/jest": "^27.5.0",
     "@types/lodash": "^4.14.182",
     "@types/luxon": "^2.3.2",
+    "jest": "^28.1.0",
     "prettier": "^2.6.2",
     "typescript": "^4.6.4"
   }

@@ -4,7 +4,11 @@ import { stringify as toCsv } from 'csv-stringify/sync'
 import * as fetch from '../lib/fetch'
 
 async function main() {
-  const cumulativeVotes = await fetch.cumulativeVotes('vice')
+  const [, , pos] = process.argv
+
+  const cumulativeVotes = await fetch.cumulativeVotes(
+    pos === '--vice' ? 'vice' : 'pres'
+  )
 
   const cumulativeVotesFmt = cumulativeVotes.result.map(
     ({ precinctsTransmitted, timestamp, data }) => {
@@ -25,7 +29,7 @@ async function main() {
     }
   )
 
-  console.info(toCsv(cumulativeVotesFmt, { header: true }))
+  console.info(toCsv(cumulativeVotesFmt, { header: true, delimiter: '\t' }))
 }
 
 main()
