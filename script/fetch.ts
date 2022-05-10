@@ -19,10 +19,7 @@ async function main() {
       )
 
       return {
-        isoDateTime: DateTime.fromMillis(timestamp)
-          .setZone('Asia/Manila')
-          .toISO(),
-        timestamp,
+        isoDateTime: DateTime.fromMillis(timestamp).toUTC().toISO(),
         precinctsTransmitted,
         ...flattenedData,
       }
