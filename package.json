@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "pres": "node build/script/fetch.js --pres > pres.tsv",
-    "vice": "node build/script/fetch.js --vice > vice.tsv"
+    "pres": "node --experimental-fetch build/script/fetch.js --pres > pres.tsv",
+    "vice": "node --experimental-fetch build/script/fetch.js --vice > vice.tsv"
   },
   "author": "",
   "license": "ISC",
